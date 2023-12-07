@@ -14,5 +14,5 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: existing-terms-and-definitions
+          name: artifact
           path: pmd-ont-dev-guide.pdf
