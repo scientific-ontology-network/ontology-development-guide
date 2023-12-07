@@ -9,12 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: xu-cheng/latex-action@v3
-      - name: Build PDF
-        run: |
-          pdflatex pmd-ont-dev-guide.tex 
-          bibtex pmd-ont-dev-guide
-          pdflatex pmd-ont-dev-guide.tex 
-          pdflatex pmd-ont-dev-guide.tex 
+        with: 
+          root-file: pmd-ont-dev-guide.tex
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
