@@ -4,78 +4,77 @@ Alphanumeric identifiers are listed as best
 practice and commonly used because in most cases their advantages
 outweigh the disadvantages. A short summary is given below:
 \paragraph{Advantages} 
-Versioning and backward compatibility: a name for a concept
-can change in a new version of the ontology without its identifier (in
-databases etc) having to be changed everywhere. - user groups: if people
-talk about the same concept but can't decide on a main name for it they
-can both be added as labels for this concept and the people can get
-their own views of the ontology showing their preferred label. - better
-readability of long names: in labels we dont have to use CamelCase. Long
-names like NonRenewableMunicipalWasteFuel are better readable in lower
-case as ``non renewable municipial waste fuel''.
+\begin{itemize}
+    \item Versioning and backward compatibility: A name for a concept
+    can change in a new version of the ontology without its identifier (in
+    databases etc.) having to be changed everywhere. 
+    \item User groups: If people
+    talk about the same concept but can't decide on a main name for it, they
+    can both be added as labels for this concept and the people can get
+    their own views of the ontology showing their preferred label. 
+    \item Better readability: In labels, we do not have to use CamelCase. Long names like NonRenewableMunicipalWasteFuel are better readable in lower case as ``non renewable municipial waste fuel''.
+\end{itemize}
 
-\subsection{List of user ID's}
-\label{ssec:list-of-user-ids}
-
-The list of user ids can be found in the main ontology file
-``''. The ID's got added in front of the \emph{dc:contributor}
-annotation of the person they belong to. Please add yourself via pull
-request.
-
-\section{Motivation}\label{motivation}
-
-See the
-\href{https://github.com/OpenEnergyPlatform/ontology/issues/133}{\#133}
-for the whole discussion. 
 
 \hypertarget{disadvantages}{%
-\subsubsection{Disadvantages}\label{disadvantages}}
+\paragraph{Disadvantages}\label{disadvantages}}
 
 \begin{itemize}
-\tightlist
 \item
-  the file is harder to read without a tool like protege (that will
+  The file is harder to read without a tool like Prot\'eg\'e (that will
   automatically show labels instead of the alphanumerical identifiers).
 \end{itemize}
 
-\hypertarget{implementation-in-the-oeo}{%
-\section{Implementation in the OEO}\label{implementation-in-the-oeo}}
 
-Identifiers look like this: OEO\_00140123
+\subsubsection{List of user ID's}
+\label{ssec:list-of-user-ids}
 
-They are structured in three parts: OEO\_{[}yyyy{]}{[}xxxx{]} -
-``OEO\_'' identifies them as part of the OEO ontology - {[}yyyy{]}
-identifies the user who added the classes. Each user gets a unique ID
-(list below). Entities with the ID 0000 were created before the change
-to alphanumeric identifiers was made. - {[}xxxx{]} identifies the
-specific class added by the user. This enables every user to create
-10000 entities before having to get a new ID. IDs are assigned
-chronologically to each entity, starting with 0000.
+The list of user ids can be found in the main ontology file. The ID's got added in front of the \emph{dc:contributor}
+annotation of the person they belong to. New developers can add themself via a pull request.
 
-\hypertarget{how-to-change-your-settings}{%
-\section{How to change your
-settings}\label{how-to-change-your-settings}}
 
-Every user has to set his protégé user settings according to the
-structure of the identifiers used in the OEO.
+\subsubsection{Implementation in the Template Ontology}\label{sssec:implementation-in-the-mno}
 
-This is done by opening the ``oeo.omn'' file in Protégé and clicking on
-\texttt{File\ -\textgreater{}\ Preferences\ -\textgreater{}\ new\ entities}.
+Identifiers look like this: MNO\_00010123
 
-Then the following settings are selected:
+They are structured in three parts: {[}Ontology{]}\_{[}yyyy{]}{[}xxxx{]}
+\begin{itemize}
+    \item ``{[}Ontology{]}\_'' identifies the ontology that this class belongs to. 
+    \item {[}yyyy{]} identifies the user who added the classes. Each user gets a unique ID.
+    \item {[}xxxx{]} identifies the
+specific class added by the user. 
+\end{itemize}
 
-\texttt{Entity\ IRI:}\strut \\
-- \texttt{Specific\ IRI:} http://openenergy-platform.org/ontology/oeo/ -
-\texttt{/} - \texttt{Auto-generated\ ID}
+This enables every user to create 10000 entities before having to get a new ID. IDs are assigned chronologically to each entity, starting with 0000.
 
-\texttt{Entity\ Label:} - \texttt{Same\ as\ label\ renderer}
 
-\texttt{Auto-generated\ ID:} - \texttt{Numeric\ (iterative)} -
-\texttt{prefix:\ OEO\_{[}your\ user\ id{]}\ e.g.\ OEO\_0001\ if\ you\ user\ ID\ is\ 1}
-- \texttt{Digit\ count:\ 4} - \texttt{Start:\ 0} - \texttt{End:\ -1}
+\subsubsection{How to change your
+settings}
+\label{sssec:how-to-change-your-settings}
 
-check \texttt{"Remember\ last\ ID\ between\ Protégé\ sessions"}
+Protege is able to generate these IRIs automatically, but the required settings are not entirely intuitive. Navigate to \textit{$\text{File}\rightarrow\text{Preferences}\rightarrow\text{New Entities}$} and change the following settings. 
 
-then click ``OK''
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{fig/protege-settings.png}
+    \caption{Settings in \textit{$\text{File}\rightarrow\text{Preferences}\rightarrow\text{New Entities}$} as described in Section \ref{sssec:implementation-in-the-mno}.}
+    \label{fig:protege-settings}
+\end{figure}
 
-\includegraphics{https://user-images.githubusercontent.com/56925445/79339344-086d7800-7f29-11ea-804f-1b4e2df3e6d5.png}
+\begin{itemize}
+    \item \texttt{Entity\ IRI:}
+    \begin{itemize}
+        \item \texttt{Starts with:} Select the \texttt{Specific\ IRI} option and change it to the Ontology IRI of your ontology
+        \item \texttt{Followed by:} This setting depends on how the IRIs are resolved.
+        \item \texttt{Ends with:} Select the \texttt{Auto-generated\ ID} option\todo{Explain settings}
+    \end{itemize}
+\item \texttt{Entity Label:} Choose the \texttt{Same as label renderer} option
+\item \texttt{Auto-generated ID:}  Choose the \texttt{Numeric (iterative)} option and set the following parameters
+\begin{itemize}
+    \item \texttt{Prefix:} [Ontology]\_{[}your user id{]} e.g. MNO\_0001 if you user ID is 1
+    \item \texttt{Digit count:} The number of digits that your entity identifiers should have.
+    \item \texttt{Start:} The smallest value for entity identifiers
+    \item \texttt{End:} The largest possible value for entity identifiers
+\end{itemize}
+\end{itemize}
+An example for these settings is shown in Figure~\ref{fig:protege-settings}.
