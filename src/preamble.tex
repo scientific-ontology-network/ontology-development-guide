@@ -1,10 +1,35 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{hyperref} % Required for inserting clickable URLs
 \usepackage{todonotes}
+
+\usepackage{fourier}        
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\usepackage{scalefnt}
+\usepackage[scaled=0.875]{helvet} % ss
+\renewcommand{\ttdefault}{lmtt} %tt
+\usepackage{microtype}						% better inline scaling
+\setlength{\emergencystretch}{1em}
+\DeclareFontFamily{U}{rcjhbltx}{}
+\DeclareFontShape{U}{rcjhbltx}{m}{n}{<->rcjhbltx}{}
+\DeclareSymbolFont{hebrewletters}{U}{rcjhbltx}{m}{n}
+\DeclareMathSymbol{\ayin}{\mathord}{hebrewletters}{96}
+\DeclareMathSymbol{\beth}{\mathord}{hebrewletters}{98}\let\bet\beth
+
+
 \usepackage{amsmath,latexsym}
+\usepackage{amsmath,amsfonts,amssymb,bbm,latexsym}	
+\usepackage{fancyhdr}
 \newtheorem{example}{Example}
 
 \newcommand{\fakeontologyname}{THE-NEW-ONTOLOGY}
 \newcommand{\issuediscussionlimit}{20}
 \newcommand{\github}{GitHub}
 \newcommand{\protege}{Protégé}
+
+\makeatletter
+\def\ifdraft{\ifdim\overfullrule>\z@
+  \expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi}
+\makeatother
+
+\fancyhf{\ifdraft{DRAFT}{}}
+

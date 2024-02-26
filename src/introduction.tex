@@ -1,20 +1,37 @@
 \section{Introduction}
 
-\subsection{Why does this document exist?}
+%\subsection{Why does this document exist?}
 
-Ontology development poses a formidable challenge due to its inherent complexity arising from the need to capture and represent diverse knowledge domains in a structured and coherent manner. The difficulty arises from the ambiguity of natural language, the dynamic nature of information, and the intricate relationships between concepts. Additionally, reconciling differing perspectives and ensuring ontological relevance across various applications further complicates the task. Achieving a balance between specificity and generality while accommodating evolving knowledge landscapes adds another layer of intricacy to ontology development. Thus, the multifaceted nature of ontology creation underscores its inherent difficulty in providing a comprehensive and accurate representation of complex real-world phenomena.
+Knowledge representation is becoming increasingly important in view of the large amounts of data that are handled in the modern scientific landscape. Many of the domains that have most readily realised this problem and worked on potential solutions have been the domain of biochemistry. And although the developments sought here were not accompanied by philosophers, this process organically led to the development of formal and structured representations of certain domains - also known as ontologies.
 
-Additionally, there exist many resources that convey a picture of what an ontology is that is detremental to the development on ontologies that are useful and accepted by a wider range of experts. 
+These approaches have led to major advances in the organisation, structuring and communication of scientific results. Since then, a variety of other domains have tried to adapt a similar process and develop their own ontologies. However, the development of ontologies from the domain of biochemistry was the result of a years-long process that also involved a large number of errors and course corrections. One of the greatest challenges is also one of the greatest strengths of ontologies: Interoperability with other ontologies. To ensure this interoperability, ontologies must follow certain principles. In the field of biochemistry, the OBO Foundry has established itself, which offers functionalities for a rich network of ontologies from the domain, but at the same time also defines rules.
+
+The purpose of this document is to define a similar set of rules for open ontology development, but which addresses a broader domain and at the same time lowers the barrier of entry for new ontology developers. To this end, we will outline a workflow that can be used to build new ontologies more efficiently. This workflow is based not only on our own years of experience in ontology development, but also on the rules of external experts such as the OBO Foundry.
 
 \subsection{Introductory literature}
 
-The following workflow is largely inspired by an infrastructure described by Allemang et. al at FOIS 2021 \cite{kendall-workflow} and the methods used to develop large ontologies such as (FIBO) \cite{fibo2013} and the Open Energy Ontology (OEO) \cite{oeo2021}.
+
+These guidelines are based on a variety of different sources and experiences. In this section we would like to present some of the important works on which this document is based.
+
+%The following workflow is largely inspired by an infrastructure described by Allemang et. al at FOIS 2021 \cite{kendall-workflow} and the methods used to develop large ontologies such as (FIBO) \cite{fibo2013} and the Open Energy Ontology (OEO) \cite{oeo2021}.
 
 \begin{itemize}
-    \item Maria Keet: \cite{keet2018introduction}.
-    \item Neuhaus et al.: \cite{Neuhaus2022OntologyDI}
-    \item Smith et al.: \cite{bfo-book}
+    \item Maria Keet is a recognized expert in the field of ontology development. Her recent book provides a good overview of the topic. \cite{keet2018introduction}
+    \item There are a variety of views on what ontologies are and how the process of ontology development should be understood. This guide is based on the principles described by Neuhaus et al. \cite{Neuhaus2022OntologyDI}
+    \item Our ontologies are based on the Basic Formal Ontology (BFO). This useful structuring of fundamental ontological concepts is described in Barry Smith's corresponding book \cite{bfo-book}
 \end{itemize}
+
+\subsection{Related efforts}
+
+This document is the result of a collaboration between various projects from a wide range of institutions. We would like to take this opportunity to briefly present these individual projects.
+
+\paragraph{Open Energy Family}
+
+The Open Energy Family deals with methods for knowledge exchange in the domain of energy system modeling. In the course of several research projects\footnote{\url{https://www.iee.fraunhofer.de/de/projekte/suche/2021/sirop.html}} funded by the german Federal Ministry For Economic Affairs And Climate Action, a variety of methods have been developed with which experts from the domain can publish, communicate and compare their results more efficiently. For example, research data can be published on the Open Energy Platform\footnote{https://openenergy-platform.org/about/}, annotated there using the Open Energy Ontology (OEO, \cite{oeo2021}) and then linked with each other using the Open Energy Knowledge Graph.
+
+\paragraph{Platform MaterialDigital (PMD)}
+
+\todo{@Markus: Could you rephrase this to match the new structure?}
 
 Furthermore, as introduction to the collaborative project \href{http://www.materialdigital.de}{Innovation Platform MaterialDigital (PMD)}, in the frame of which this document was created, and to the process of ontology development, the following publications are supposed to provide more information: 
 
@@ -23,3 +40,5 @@ Furthermore, as introduction to the collaborative project \href{http://www.mater
     \item Bayerlein et al., \href{https://doi.org/10.1016/j.matdes.2023.112603}{PMD Core Ontology: Achieving semantic interoperability in materials science}: \cite{BayerleinPMDco2024}
     \item Schilling et al., FAIR and structured data: A domain ontology aligned with standard-compliant tensile testing: \cite{SchillingTTO2023}
 \end{itemize}
+
+\newpage

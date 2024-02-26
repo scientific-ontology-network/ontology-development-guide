@@ -1,0 +1,123 @@
+\section{The {\github} workflow}
+
+Ontology development unfolds across two primary platforms: {\github} issues and online meetings. {\github}  serves as the central hub, where issues act as the primary conduit for external feedback, extension requests, and developmental discussions. Online meetings are strategically employed for tackling challenging and contentious definitions. The overarching objective in both {\github}  and meetings is to reach a consensus among all participating experts, ensuring a robust and collaborative ontology development process.
+
+In the following, we propose a general workflow from a user request to the final extension of the ontology.
+
+An example for this workflow and instructions on how to create your own can be found in our example repository.\footnote{\url{https://github.com/open-ontology-community/example-ontology-repository}}
+
+\subsection{Reporting missing classes/properties/axioms}
+
+% \todo{MS: Add a note on the extend of the issue topic: ideally create atomic issues (1 term = 1 issue), however, this is sometimes not feasible, because some terms and relations have to be discussed in context with others. for a single issue max a couple (1-5) of related terms/relations. In OEO we also use meta-issues for broader topics, that can be split / refer to atomic issues.}
+
+Ontology development is never truly done. There will always be some fragments of the domain that have not yet been included. Likewise, you may bring a new perspective to the domain that does not match with the ontologie's current state. In both cases, you are welcome to contribute your feedback to the ontology development. To do so, you need to open a new issue in the respective {\github} repository of this ontology. 
+
+We recommend a few simple rules for how issues should be structured:
+
+\begin{enumerate}
+    \item \textbf{Naming:} Name the issue in such a way that the issue title makes sense if read after ``The issue is that ...''
+    \begin{itemize}
+        \item Good: ``Microscopes are not covered'', ``The definition of iron is inconsistent''
+        \item Bad: ``Can we cover microscopes?'', ``faulty definition of iron''
+    \end{itemize}
+    \item \textbf{Keep it simple:} Issues should cover minimal topics. In the best case that means that they only address a single term. Ontology development, however, is inherently complex and terms can often not be discussed in a vacuum. To keep things manageable, we recommend to limit issues to at most five concepts.
+    \item \textbf{Supply information:} Try to be as precise in your description of the change that you want to see. Ontology development is about concepts, not terms. So, a simple statement that a particular term is missing from the ontology does not suffice. Instead, try to describe your understanding of that term and - in the best case - propose a draft definition for your term. 
+\end{enumerate}
+
+\begin{example}
+    Alice notices that microscopes are not yet covered by any of the PMD ontologies. She opens a new issue titled \textit{``Microscopes are not covered yet''}. She also proposes a new definition \textit{``A microscope is a tool that makes things bigger''}. As she submits, the issue tracker assigns the issue number \textit{3141}.
+\end{example}
+
+\subsection{Working on open issues}
+
+The ontology development takes place in {\github} issues. The main goal of these issues is to collect different opinions on the matter at hand and find a solution that reflects a consensus among all experts.
+
+\begin{enumerate}
+    \item \textbf{Check scope: } A lead developer evaluates whether the new concept fits into the scope definition of the ontology
+    \item \textbf{Assign:} Assign a single ontology developer (further called \textit{assignee}) who is responsible for the implementation of this new concept.
+    \item \textbf{Draft:} The assignee drafts a definition of the new concept and possible subsumption relations and axioms.
+    \item \textbf{Discuss:} Other developers give feedback on these proposals and contribute to the discussion until a consensus is reached.
+    \item \textbf{Agree or Talk:} If the discussion exceeds {\issuediscussionlimit} posts, it is moved to online meetings
+\end{enumerate}
+
+\begin{example}
+    Betty is one of the lead developers. They receive a notification of Alice's class request. They review the request and note that the concept is indeed missing from the current version of the ontology and within scope. They then decide that Claire will become the main assignee.
+
+    Claire notes that the proposed definition is not precise enough, as it would also include other machines like tensile testing machines. She therefore proposes an alternative definition: \textit{``A microscope is a tool that magnifies objects.''}
+
+    Dillan, another ontology developer, points out that 'magnifying' is already in the ontology and that microscopes should be in relation to that class: 
+    \[\mathrm{`microscope`} \sqsubseteq \exists \mathrm{`participates~in`}.\mathrm{`magnifying`}\]
+
+    Claire points out that a microscope does not necessarily need to participate in a process in order to be a microscope and a discussion ensues. At this point, the discussion exceeds the threshold of {\issuediscussionlimit} posts and they decide to discuss this matter in the developer meeting and add issue number 1314 to the agenda.
+\end{example}
+
+\subsection{Development meetings}
+
+The issue-based workflow should allow developers to address the majority of the feedback from users, stakeholders and other developers. However, some concepts are so integral to the domain or the distinctions for specific concepts are so complex or controversial, that finding a consensus is a tough task. Experience shows that an online setting with long response times is not the most efficient way to deal with such issues and that face-to-face discussions turn out to be much more productive.
+
+Therefore, we recommend regular developer meetings to address these tough issues - be it in-person or online via Zoom or similar services. 
+
+\begin{example}
+In the next developer meeting, Betty, Claire and Dillan revisit issue 1314. During the discussion, they conclude that it is a function of microscopes to be used in magnifying processes. Therefore they decide to use the definition \emph{``A microscope is an object that can be used to magnify other objects''} and add the axiom
+\emph{```microscope` `has~function` \textbf{some} \`magnifying~function`''}.
+The experts agree that they have reached a consensus and document their discussion in issue 1314. Dillan is tasked with the implementation of this issue.
+\end{example}
+
+\subsection{Implementing a change}
+\begin{itemize}
+    \item  Work should be done in a separate branch names ``[IssueNumber]"
+    \item add issue number to PR, use "closes \# issue number" to make {\github} close the issue once the PR is merged
+    \item update changelog and/or term tracking
+\end{itemize}
+
+\begin{example}
+Dillan has been tasked with implementing the consensus reached in the developer meeting. To do so, he pulls the most recent version from the development of the ontology and creates a new branch named \textit{1314\_add\_microscope}.
+
+Then Dillan adds the necessary axioms to the ontology. He chooses to do so using {\protege}. He did already set up his working environment according Section~\ref{ssec:using-protege}. He opens the ontology in {\protege} and adds the missing class including its definition and the additional axiom.
+
+Afterwards, he pushes his new branch to {\github} and opens a new Pull Request to merge his branch into the development branch.
+\end{example}
+
+\subsection{Reviewing a change}
+Review the changes made on {\github} in the "files changed" section or commit-wise. Mark small change requests in the code directly or write a comment. Further, pull the proposed changes from the feature branch to protege and check there for inconsistencies. 
+
+The following checklist can guide the review:
+\begin{itemize}
+    \item[$\Box$] Are classes and axioms placed correctly in the hierarchy?
+    \item[$\Box$] Are spelling and grammar of definitions as well as axioms correct?
+    \item[$\Box$] Are class definitions also reflected in the class axioms?
+    \item[$\Box$] Are the classes classified correctly according to the BFO?
+    \item[$\Box$] Are changes placed in the correct file, i.g. in case of a modular structure?
+    \item[$\Box$] Are all steps of the requested changes done according to the issue and the expert decision?
+    \item[$\Box$] Are there only changes that were previously agreed on in the discussion?
+    \item[$\Box$] Are all changes made intentional? (e.g.Sometimes Protégé rearranges things which goes wrong in rare cases)
+    \item[$\Box$] Are all relevant changes mentioned in the changelog / term trackers?
+\end{itemize}
+    
+\begin{example}
+Once Dillan is done with the implementation and pushed his proposed changes to {\github}, he marks the PR as "ready for review" and assigns Betty and Eric, a domain expert, as reviewers. 
+
+Both start the review process by checking the questions of the reviewer's guide (list above). 
+Betty has a change request, because Dillon missed to add "microscope" to the list of added terms in the changelog and marks this in the PR. Eric is content with the implementation and approves the PR, after Dillon added the note the the changelog.
+
+After the approval and after the automated checks (CI) in {\github} were successful, Dillon merges the PR to the development branch. The term "microscope" has been added to the ontology.
+\end{example}
+
+\paragraph{Structure of the repository}
+
+\begin{description}
+    \item[modules] Contains the actual ontology modules (T-box)
+    \begin{itemize}
+        \item Ontology files in Turtle or Manchester Syntax
+    \end{itemize}
+    \item[patterns] Contains PMD Semantic Patterns that can be used to structure the ontology development and the shape definition
+    \begin{itemize}
+        \item LinkML
+        \item SHACL
+        \item OTTR
+    \end{itemize}
+    \item[shapes] General shapes that can be used to describe certain scenarios
+    \begin{itemize}
+        \item SHACL
+    \end{itemize}
+\end{description}

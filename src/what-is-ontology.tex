@@ -1,23 +1,20 @@
 \section{Understanding ontology development}
 
 \subsection{What is ontology development?}
-The term 'ontology development' refers to the process of creating and refining ontologies. An ontology is a formal and explicit representation of knowledge that defines the concepts within a domain and the relationships between them. It serves as a structured framework for organizing information and knowledge, facilitating understanding and sharing of data within a particular community and across different systems.
-
-Key components of ontologies include:
+The term 'ontology development' refers to the process of creating and refining ontologies. An ontology is a formal and explicit representation of knowledge that defines the concepts within a domain and the relationships between them. It serves as a structured framework for organizing information and knowledge, facilitating understanding and sharing of data within a particular community and across different systems. Key components of ontologies include:
 
 \begin{enumerate}
-    \item \textbf{Concepts}: Concepts represent the basic building blocks of an ontology. They are the entities or classes within a domain that are relevant to the knowledge being modeled.
+    \item \textbf{Classes}: A class represents a general concept in an ontology, these can be groups of actual physical objects like "Dog" and also more abstract concepts like the growth process of a plant.
+    
+    \item \textbf{Individuals}: Individuals are specific members of classes within the ontology. They represent real-world entities like "my dog Bob" or "the marriage between Michelle and Barrack Obama".
+    
+    \item \textbf{Properties}: Relationships define the connections or associations between individuals. They specify how different individuals are related to each other. I may be in the "owner of" relation with "my dob Bob".
 
-    \item \textbf{Relationships}: Relationships define the connections or associations between concepts in the ontology. They specify how different concepts are related to each other and provide a more comprehensive understanding of the domain.
+    \item \textbf{Axioms}: Axioms are statements that express the rules or constraints governing the relationships and properties of concepts in the ontology. They help ensure consistency and coherence within the knowledge representation. They allow us to represent the general structure of a domain, e.g. "Every owner of a dog is a human."
 
-    \item \textbf{Properties}: Properties describe the characteristics or attributes of concepts and relationships. They add additional details to the ontology, helping to define the nature of the elements within the domain.
-
-    \item \textbf{Axioms}: Axioms are statements that express the rules or constraints governing the relationships and properties of concepts in the ontology. They help ensure consistency and coherence within the knowledge representation.
-
-    \item \textbf{Instances}: Instances are specific examples or individual members of concepts within the ontology. They represent real-world entities and provide concrete data points for the knowledge model.
 \end{enumerate}
 
-Hence, the development of an ontology means to create a graph using these components (1. - 5.). It typically involves the collaboration among domain experts, knowledge engineers, and other stakeholders. It may go through iterative processes of refinement and validation to ensure that the ontology accurately reflects the domain it is intended to represent. This may be referred to as 'curation'. Ontologies are used to enhance data interoperability and support automated reasoning.
+The ontology design process typically involves collaboration among domain experts, knowledge engineers, and other stakeholders. It may go through iterative processes of refinement and validation to ensure that the ontology accurately reflects the domain it is intended to represent. This may be referred to as 'curation'. Ontologies are used to enhance data interoperability and support automated reasoning.
 
 The Semantic Web, in particular, relies heavily on ontologies to enable machines to understand and process information in a more meaningful way, fostering improved communication and integration of data across diverse applications and platforms. As such, ontologies are the basis of the Semantic Web and thus, they are essential for the generation of structured data and their interoperability.
 

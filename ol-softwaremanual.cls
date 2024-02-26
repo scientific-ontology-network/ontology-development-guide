@@ -5,16 +5,16 @@
 % set default smaller margins, separated paragraphs, bigger line spacing
 % (fullpage used as fallback if geometry package removed from main preamble)
 \RequirePackage{fullpage,parskip}
-\linespread{1.1}
+%\linespread{1.1}
 
 % use Roboto as the main font
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc}
-\RequirePackage{lmodern}
-\RequirePackage{sfmath}
+%\RequirePackage[utf8]{inputenc}
+%\RequirePackage[T1]{fontenc}
+%\RequirePackage{lmodern}
+%\RequirePackage{sfmath}
 
 % load the base class with default options
-\LoadClass[12pt,a4paper]{article}
+\LoadClass[a4paper,11pt]{article}
 
 % extra front matter commands
 \DeclareRobustCommand*{\softwarelogo}[1]{\gdef\@logocmd{#1}}
@@ -38,6 +38,18 @@
 \end{titlepage}
 }
 
+\RequirePackage{fancyhdr}
+
+%% now reset the headers and footers
+
+\fancyhead{}
+\fancyfoot{}
+\pagestyle{fancy}
+
+\renewcommand{\baselinestretch}{1.05}
+\small\normalsize
+\RequirePackage{scalefnt}
+\scalefont{1.08}
 
 \AtEndPreamble{%
 % set some hyperref options if it's loaded
