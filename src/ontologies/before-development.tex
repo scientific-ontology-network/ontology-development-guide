@@ -1,0 +1,41 @@
+\subsection{Before Development}
+
+\subsubsection{Define the Kind of Ontology}
+\label{sssec:ontologykind}
+
+In order to develop a suitable ontology, it must first be determined what purpose it should actually fulfil. Different types of ontologies are required for different purposes. In general, three different types of ontologies are distinguished here, which differ fundamentally in the breadth of coverage and specificity of the defined terms.
+The most general here are the so-called \textit{top-level ontologies}. These deal with fundamental distinctions of the world. They often define very abstract and philosophical concepts, e.g. material and immaterial objects or things with and without temporal extension. These ontologies are rarely used on their own in applications. Instead, they should be utilised so that new ontologies can use them as a basis on which to build.
+
+The next level is formed by the so-called \textit{domain ontologies}. These deal with the description of a specific domain, e.g. the domain of materials science, the domain of copper production and processing, the domain of ultra-thin film technology or the domain of energy systems technology. As should already be clear from the examples, these domains can vary in size and also overlap. It is therefore particularly important that a new ontology fits well into the context of existing ontologies.
+
+The \textit{application ontologies} are even more specific. These deal with the description of a very specific use case, e.g. to document a data format. These ontologies often only cover a very small domain and are highly specialised. For this purpose, they often import important, general concepts from several domain ontologies.
+
+In this guide, we will mainly focus on domain ontologies. Top-level ontologies require in-depth knowledge and experience in ontology development. However, this guide is aimed at those who are new to the field of ontology development.
+
+
+\begin{example}
+Alice is an expert in the field of aerospace engineering and wants to develop a new ontology for her domain. In particular, she aims to integrate data sources from different airplane manufacturers. This task is limited to a particular domain and therefore the ontology should not be a top-level ontology. At the same time, she does not want to represent a particular application. Her task requires her to integrate dittetent views that experts haveonthe same particular domain.
+
+\todo{example for application ontology}
+
+\end{example}
+
+\subsubsection{Define the scope}
+
+
+After the target domain and level of detail of the ontology were identifies in the previous step \ref{sssec:ontologykind}, one must now precisely define the intended. A written \textit{scope definition} is created for this purpose. This is necessary because domains rarely exist in a vacuum. Accordingly, it is often the case that during development it becomes apparent that the description of a certain term actually requires concepts that lie just outside the scope of the ontology or even in a different domain. If these concepts are then simply added to the ontology and this procedure is often repeated, the result is an ontology that is no longer clearly structured, but instead contains a collection of concepts that are unrelated to the domain. This problem is also referred to as \textit{scope creep}. A fixed scope definition can counteract this by only including concepts in the ontology that fall within the definition.
+
+This approach has several decisive advantages. Firstly, it allows users to quickly decide whether a term they are looking for could be found in a given ontology. It also reduces the risk of duplication of concepts across different ontologies, as each ontology remains clear in its focus and does not also contain additional "external" concepts that cause unexpected overlaps. A scope definition also makes it easier to find and reuse existing ontology resources, as the written scope definitions can be processed and indexed by search engines.
+
+\begin{example}
+
+Alice collects the requirements for her domain. In doing so,she realises that her main focus lies on the description of the manufacturing process for airplanes. She then formulates the scope of her ontology as follows: "This ontology defines relevant terms for the domain of aircraft production. This includes parts of aircrafts, processes that are used to assemble these parts. It does not include terms related to the aerodynamic properties of parts or planes, flight behaviours, description of chemical processes etc."
+
+\end{example}
+
+\subsubsection{Define Competency Questions}
+
+One of the difficult tasks in ontology development is not the structuring of the ontology, but the choice of topics to focus on during development. A helpful tool for this is the definition of so-called \textit{competency questions}. These questions are a collection of questions that should be answerable using the ontology.
+
+\begin{example}
+\end{example}

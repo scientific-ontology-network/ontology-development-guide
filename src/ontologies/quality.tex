@@ -1,0 +1,68 @@
+\subsection{Quality criteria}
+
+% \todo[inline]{Add quality criteria for ontologies}
+% --> Tried to do so, hope you are fine with it, Markus
+
+In ontology development, quality criteria are used to assess the effectiveness, reliability, and overall value of an ontology. There is a number of metrics that are based on different aspects of the ontology, like depth, number of axioms etc. For a more technical consideration of the quality of ontologies, conceptual models were developed for their assessment \cite{WilsonQuality2021, WilsonQuality2023}. In practical ontology work, however, we found the usefulness of concrete metrics to be limited. Ontologies are developed with a specific goal in mind and should also be evaluated against them. These goals may be as heterogeneous as the domains that they describe. Therefore, we will limit the discussion in this section to general aspects of ontology quality and encourage ontology developers to follow them as closely as possible. %These criteria support in ensuring that the ontology accurately represents the intended domain, is useful for its intended purpose, and can be easily reused or extended. The key quality criteria commonly used in assessing ontologies are:
+
+\paragraph{Consistency}
+
+The most important property of an ontology is its logical consistency. Consistency ensures that the ontology does not contain contradictions or conflicts within its structure or content. Depending on the formalisms used to develop the ontology, different mechanisms to endure consistency can be employed. Our workflow is based on the semantics of OWL DL. This allows the use of automated reasoners such as Hermit, Pellet and others to ensure consistency automatically.
+
+\paragraph{Scope}
+
+As we pointed out in Section~\ref{ssec:development-rules}, a scope definition is an essential part of good ontology development. Its purpose is to limit the kinds of concepts that are part of the ontology. But this scope definition can also function as a measure for the completeness of an ontology. Completeness assesses the extent to which the ontology captures the relevant concepts, relationships, and properties within its scope. Since an ontology is supposed to cover all essential aspects of a domain without omitting important information, assessing its completeness involves checking for gaps or missing elements that could affect usefulness.
+
+\paragraph{Fitness for purpose}
+
+An ontology should be build for a specific set of use-cases. These use-cases should be formalised in a way that they reflect the requirements of its intended stakeholders and applications. This can be done by defining specific modelling tasks that can then be used to measure the degree to which an ontology fits the purpose for which it was designed.
+
+Competency questions are also a good indicator for the fitness of an ontology. These questions define inferences that the ontology should allow. These questions are orthogonal to the use-cases described before in that they evaluate the semantic quality of the ontology.
+%It involves assessing whether the ontology effectively supports knowledge representation and reasoning tasks within its domain. Usefulness also considers factors such as performance, scalability, and positive user experience.
+
+\paragraph{Agreement}
+
+Open ontologies are meant to be used by a wider range of experts. It is therefore imperative that these experts understand the ways in which different concepts of the ontology can be used. An ontology that has a deep philosophical foundation and strong axiomatisation is still not usable, if external experts cannot understand the intended semantics of a given class from its definition, axioms and annotations. This can be assured by easily accessible documentation, and decision guides. BFO, for example, is based on complex definitions that are not immediately helpful for someone new to the field of formal ontologies. It does, however, come with an associated book and a helpful flow chart \cite{bernabe2023method} that make it more accessible.
+
+\paragraph{Open development}
+
+An ontology will never be perfect. There will always be concepts that are not covered or relationships that have not been axiomatieed. An ontology does therefore require constant maintenance that cannot always be provided by the initial developers. An open development workflow is therefore mandatory for an ontology that is usable in active, evolving fields. The ontology must therefore be developed in a way that allows the contribution of people external to the core development team in order to accommodate changes in the domain or requirements of the ontology as well as clear guidelines and documentation for ontology integration and extension%Maintainability also includes considerations such as versioning, governance, and ontology lifecycle management.
+
+\paragraph{Reusability}
+
+An ontology that is not used is a dead ontology. This is not just limited to using the ontology terms for specific annotations. An ontology may also be used as the foundation of another ontology. This is, in fact, necessary as each ontology should have a limited scope, whilst scientific domains in particular are often intertwined. It is therefore important to design the ontology in a way that it can be easily integrated with other ontologies. A reusable ontology should be modular and interoperable, allowing components to be easily reused in various contexts. This is specifically true for higher-level, such as top- and mid-level ontologies. 
+
+%By evaluating ontologies against these quality criteria, developers can ensure that their ontologies are robust, reliable and fit for purpose.
+
+
+
+%\todo[inline]{oof, using techniques of software development to asses the quality of ontologies is certainly a choice and I am not sure that it is a good one. I propose that we are very cautious here. Developing ontologies the same way one would develop software causes some serious issues. As someone with a background in computer science: Been there, done that, everything exploded.\\
+%\cite{WilsonQuality2021, WilsonQuality2023}, however, seems to have some good points. In particular the use of patterns and identification of anti-patterns is something that people are curretnly working on in PMD.
+%}
+
+% Accordingly, the exploration of quality models in software engineering reveals several established frameworks that can inform and guide software development practices. McCall’s \cite{McCallModel1978}, Boehm’s \cite{BoehmQuality1976}, Garvin’s \cite{GarvinQuality1984}, ISO/IEC 25012 \cite{ISO25012}, and ISO 9126 \cite{ISO9126-2, ISO9126-3, ISO9126-4} are among the well-accepted models. Each of these offers unique perspectives and criteria for assessing software quality. Hence, these models provide hierarchies of characteristics and measures that enable comprehensive evaluations from various angles.
+% Similarly, various quality models have been proposed in the field of ontology development. These models, such as the semiotic metric suite \cite{BurtonQuality2005}, Gangemi's model \cite{GangemiOntoEval2006}, and OQuaRE \cite{DuqueOQuaRE2011}, focus on assessing ontology quality based on 
+% \begin{itemize}
+%     \item structural, 
+%     \item functional, and 
+%     \item usability
+% \end{itemize} \textit{dimensions}. While some models focus intrinsic aspects, others consider both intrinsic and extrinsic factors while providing a holistic view of ontology quality. \todo{Which of these employed by successful, large-scale ontologies?}
+
+% Concerning characteristics and measures relevant to ontology evaluation, fourteen (14) significant characteristics have been identified in the literature, including:
+% \begin{itemize}
+%   \item Compliance,
+%   \item Complexity,
+%   \item Internal Consistency,
+%   \item Modularity,
+%   \item Conciseness,
+%   \item Coverage,
+%   \item External Consistency,
+%   \item Comprehensibility (i.e., intrinsic point of view),
+%   \item Accuracy,
+%   \item Relevancy,
+%   \item Functional Completeness,
+%   \item Understandability (i.e., extrinsic point of view),
+%   \item Adaptability, and
+%   \item Efficiency.
+% \end{itemize}
+% These characteristics were grouped into the four \textit{evaluation aspects}, also defined as \textit{dimensions}, (i) Structural intrinsic, (ii) Domain intrinsic, (iii) Domain extrinsic, and (iv) Application extrinsic, that mirror the ontology evaluation space. This model resembles the ISO 25012 Data Quality model. Based thereon, three main categories for ontology quality can be defined: inherent ontology quality, domain-dependent ontology quality, and application-dependent ontology quality. Additionally, typical characteristics such as currentness, credibility, accessibility, availability, and recoverability also denoted in ISO 25012 can be used for ontology assessment. \todo[inline]{This guide is meant to pose as one-stop overview on how to develop ontologies. Referencing a large number of papers without an extensive explaination or discussion seems contrary to that goal. I propose that we pick one or two well-established tools (e.g. OOPS!) and explain their criteria}
