@@ -1,5 +1,6 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{hyperref} % Required for inserting clickable URLs
+
 \usepackage{todonotes}
 
 \usepackage{fourier}        
@@ -15,16 +16,55 @@
 \DeclareMathSymbol{\ayin}{\mathord}{hebrewletters}{96}
 \DeclareMathSymbol{\beth}{\mathord}{hebrewletters}{98}\let\bet\beth
 
+\pagenumbering{alph}
 
 \usepackage{amsmath,latexsym}
 \usepackage{amsmath,amsfonts,amssymb,bbm,latexsym}	
 \usepackage{fancyhdr}
+\usepackage{listings}
+
+\lstdefinelanguage{Manchester}{
+    alsodigit = {-},
+    keywords = {AnnotationProperty,Datatype,Class,SubClassOf,Annotations,ObjectProperty,Ontology,Prefix,SubPropertyOf }
+}
+
+\lstdefinestyle{ontology}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  %identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta} 
+% Node styles
+\tikzstyle{class}=[fill=white, draw=black, shape=rectangle]
+\tikzstyle{annotation}=[fill=white, draw=gray, shape=rectangle, dashed]
+% Edge styles
+\tikzstyle{is-a}=[arrows={-Latex[fill=white, width=5pt,]}]
+\tikzstyle{rel}=[arrows={->}]
+\tikzstyle{annot-edge}=[-, dashed]
+
+\pgfdeclarelayer{nodelayer}
+\pgfdeclarelayer{edgelayer}
+\pgfsetlayers{edgelayer,nodelayer}
+
+
+\newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
 
 \newcommand{\fakeontologyname}{THE-NEW-ONTOLOGY}
 \newcommand{\issuediscussionlimit}{20}
 \newcommand{\github}{GitHub}
 \newcommand{\protege}{Protégé}
+
 
 \makeatletter
 \def\ifdraft{\ifdim\overfullrule>\z@

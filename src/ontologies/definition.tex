@@ -1,0 +1,62 @@
+There is a wealth of literature on the subject of ontologies. These range from purely philosophical perspectives to very application-oriented ones from computer science. One of the reasons for this is that ontologies are used in a wide range of disciplines. Probably the best-known modern definition of the concept of ontology comes from Gruber\cite{gruber1993ontology,studer1998knowledge}: \textit{``An ontology is a formal, explicit specification of a shared conceptualization.''}. Although this definition has proved to be very suitable over the years, it is not very helpful if you want to gain a basic, intuitive understanding of ontologies. Therefore, we use a newer, more helpful definition of the term ontology in this guide:
+
+\begin{definition}[Ontology \cite{neuhaus2018ontology}]
+    An ontology of a given domain of interest is a document
+that provides
+\begin{enumerate}
+    \label{def:ontology_2}
+    \item  a \underline{vocabulary} for describing the domain of interest,
+    \item  \underline{annotations} that document the vocabulary, and
+    \item  a \underline{logical theory} (consisting of axioms and definitions) for the vocabulary,
+in a way that these three elements together enable a competent user of the
+ontology to ascertain its intended interpretation.
+
+\end{enumerate}
+\end{definition}
+
+\paragraph{Vocabulary}
+
+In this chapter we will explain these three components and their respective roles. The part of an ontology that most people should be familiar with is the \textit{vocabulary}. This collects the terms that are relevant for describing the target domain. Ontologies distinguish here fundamental categories:
+\begin{enumerate}
+    \item \textbf{Classes}: A class represents a general concept in an ontology, these can be categories of actual tangible things like "Dog" and also more abstract concepts like the growth process of a plant.
+    
+    \item \textbf{Individuals}: Individuals are specific members of classes within the ontology. They represent real-world entities like "my dog Bob" or "the marriage between Michelle and Barrack Obama".
+    
+    \item \textbf{Relationships}: Relationships define the connections or associations between individuals. They specify how different individuals are related to each other. I may be in the "owner of" relation with "my dog Bob".
+\end{enumerate}
+
+Ontologies are normally used for the abstract description of a domain. Concrete things (individuals) are usually not relevant for this purpose. Accordingly, ontology development usually focusses on the definition of classes and relations. For the ontology of pets, the term "Dog" is essential - but my dog Bob is not relevant for the description of the pet domain.
+
+\paragraph{Annotations}
+
+A collection of relevant terms is a good starting point for an ontology. However, this does not yet provide any information about the intended meaning of these terms. Therefore, all parts of the ontology are provided with annotations that document them. For example, each class should be annotated with a natural language definition.\todo{FN: In my opinion this is too strong. Some classes are not possible to define. } But annotations can also fulfil other purposes. For example, they can be used to give classes different readable names. It is therefore possible to use several names for the same concept, for example to reflect the names of a concept in different communities.\todo{FN: Also different languages (e.g/, English, German)} It is also often helpful to record certain meta-information with the help of annotations, such as the authors of a certain concept in the ontology.
+
+\paragraph{Logical Theory} 
+
+An annotated vocabulary is already a good source of information for understanding a domain - it is basically a domain-specific lexicon. However, it does not record the concrete relationships between different concepts. Although it is possible to describe these in textual annotations, there is a risk that these annotations will contradict each other. It is therefore important to record the connections between the concepts and relations in the ontology in a way that can be automatically checked for consistency. For example, it is helpful to express general axioms such as "Every dog is a mammal", "Every car has wheels" or "Renewable energy only comes from renewable sources". In order to formalize these axioms properly, a logical language is required. Although there are many possible languages that can be used for this purpose, the \textit{Web Ontology Language} (OWL) has established itself as the standard, which we will discuss in more detail in Section~\ref{ssec:ontology-languages}.
+
+Figure~\ref{fig:vehicle-ontology} depicts a small example ontology with five classes and a single relationship (\textit{has part}). The class "Boat" is annotated with a definition. There are five \textit{is-a} relations depicted by white arrow heads and one axiom that defines that every car has some wheels.
+\todo{FN: The definition of "boat" is wrong, since it includes ships, submarines, amphibious cars, all of which are disjoint with boat}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{pgfonlayer}{nodelayer}
+            \node [style=class] (0) at (-7.25, 8.5) {Material Entity};
+            \node [style=class] (1) at (-3.75, 5.75) {Wheel};
+            \node [style=class] (2) at (-7.75, 5.75) {Car};
+            \node [style=class] (7) at (-8.75, 7.25) {Vehicle};
+            \node [style=class] (8) at (-10, 5.75) {Boat};
+            \node [style=annotation, align=left] (13) at (-13, 7.25) {\small \textit{Definition:} A vehicle \\ \small that can travel in \\ \small water.};
+        \end{pgfonlayer}
+        \begin{pgfonlayer}{edgelayer}
+            \draw [style=is-a] (1) to (0);
+            \draw [style=rel] (2) -- (1) node[midway, above] {has part};
+            \draw [style=is-a] (2) to (7);
+            \draw [style=is-a] (7) to (0);
+            \draw [style=is-a] (8) to (7);
+            \draw [style=annot-edge] (13) to (8);
+        \end{pgfonlayer}
+    \end{tikzpicture}
+    \caption{A simple ontology for the domain of vehicles.}
+    \label{fig:vehicle-ontology}
+\end{figure}

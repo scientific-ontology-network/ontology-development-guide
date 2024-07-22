@@ -1,0 +1,47 @@
+
+\subsection{Ontology Design Patterns}
+
+Ontology design patterns are reusable solutions to common issues encountered when designing ontologies. That means, modeling decisions, particularly regarding recurring relationships and correlations, are expressed in structures that are denominated as 'patterns'. Hence, these patterns provide guidelines and best practices for representing specific types of knowledge or modeling particular domains and parts of domains. As such, ontology design patterns are useful as both, a basis for the modeling process and for documentation purposes: For the ontology creator, an illustration of the entities to be modeled may be beneficial during modeling and for ontology users, such a depiction helps to understand the concepts existing in the ontology and their intended usage. 
+Accordingly, by adhering to such design patterns, ontology developers are supported to create consistent, interoperable, and well-structured ontologies while providing templates for the modeling of (recurring) concepts and relationships.
+Following this paradigm, the application of such design patterns describing general issues is recommended, since they can be used to model similar concepts in a similar fashion. 
+
+Similar to the ontologies themselves, ontology design patterns are furthermore beneficial as they aim to
+\begin{itemize}
+    \item Promote reusability: By encapsulating common modeling practices into patterns, they can be used across different ontologies which saves time and effort.
+    \item Ensure consistency: Design patterns help maintain consistency within an ontology and across multiple ontologies by providing standardized representations for specific concepts and relationships.
+    \item Facilitate interoperability: Ontology design patterns promote interoperability between different ontologies by offering shared modeling conventions that enable seamless integration and communication between systems.
+    \item Improve (human) understandability: Patterns make ontologies more understandable to humans by providing clear and well-documented modeling guidelines which makes it easier to interpret and work with the ontology.
+\end{itemize}
+
+\textbf{Examples}
+
+As an example from the field of materials science and engineering (MSE) describing a relation between processes and process nodes as proposed by PMDco, an ontology design pattern is illustrated in figure \ref{fig:ontology_design_pattern_process}. 
+
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=1\textwidth]{fig/Ontology_Design_Pattern_Processes.jpg}
+ \caption{Schematic representation of an ontology design pattern illustrating that processes are executed by processing nodes.}
+ \label{fig:ontology_design_pattern_process}
+\end{figure}
+
+Therein, the instance \textit{resource:processing\_1} is created in the ABox and defined as a type of (\textit{rdf:type}) \textit{pmd:MeasuringProcess} which is specified in the TBox to be a subclass of (\textit{rdfs:subclassOf}) \textit{pmd:Process}. This instance is linked to another instance \textit{resource:processing\_node\_1} that is of type \textit{pmd:MeasuringDevice} which is defined as subclass of \textit{pmd:ProcessingNode} by using the object property \textit{pmd:executedBy}. This pattern is supposed to reveal that, according to PMDco, processes are executed by processing nodes. Hence, instanciations of the respective classes are always connected to each with the associated object property.
+
+An extension of the previous example illustrated in figure \ref{fig:ontology_design_pattern_process_extension} shows, that processing nodes can have additional information connected to them. In the example, a serial number of the device is included, i.e., the instance \textit{resource:processing\_node\_1} is connected to the instance \textit{resource:serialNumberID\_1}. The latter is of type \textit{pmd:NodeSerialNumber} and of type \textit{pmd:Metadata}. Hence, following this pattern, instances can be assigned to several classes which enriches semantics. This way, more and more information can be linked to the instances created.
+
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=1\textwidth]{fig/Ontology_Design_Pattern_Processes_Extension.jpg}
+ \caption{Schematic representation of an ontology design pattern illustrating additional information that can be connected to processing nodes which execute processes.}
+ \label{fig:ontology_design_pattern_process_extension}
+\end{figure}
+
+\textbf{Tools}
+
+There are tools that facilitate the technical application of patterns.
+An established framework and language for representing ontology modelling patterns are the Reasonable Ontology Templates (OTTR)\footnote{\url{https://ottr.xyz/}}. OTTR is designed to support interaction with OWL or RDF knowledge bases at a higher level of abstraction, using modeling patterns rather than OWL axioms or RDF triples. This includes:
+\begin{itemize}
+    \item building knowledge bases by instantiating templates,
+    \item communicating (presenting, transferring and visualising) the knowledge base as a set of template instances at different levels of abstraction, and
+    \item securing and improving the quality and sustainability of the knowledge base via structural and semantic analysis of the templates used to construct the knowledge base.
+\end{itemize}
+

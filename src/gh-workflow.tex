@@ -25,7 +25,7 @@ We recommend a few simple rules for how issues should be structured:
 \end{enumerate}
 
 \begin{example}
-    Alice notices that microscopes are not yet covered by any of the PMD ontologies. She opens a new issue titled \textit{``Microscopes are not covered yet''}. She also proposes a new definition \textit{``A microscope is a tool that makes things bigger''}. As she submits, the issue tracker assigns the issue number \textit{3141}.
+    Alice notices that microscopes are not yet covered by any of the PMD ontologies. She opens a new issue titled \textit{``Microscopes are not covered yet''}. She also proposes a new definition \textit{``A microscope is a tool that makes things bigger''}. As she submits, the issue tracker assigns the issue number \textit{1314}.
 \end{example}
 
 \subsection{Working on open issues}
@@ -65,7 +65,7 @@ The experts agree that they have reached a consensus and document their discussi
 
 \subsection{Implementing a change}
 \begin{itemize}
-    \item  Work should be done in a separate branch names ``[IssueNumber]"
+    \item  Work should be done in a separate branch named ``[IssueNumber]"
     \item add issue number to PR, use "closes \# issue number" to make {\github} close the issue once the PR is merged
     \item update changelog and/or term tracking
 \end{itemize}
@@ -73,7 +73,7 @@ The experts agree that they have reached a consensus and document their discussi
 \begin{example}
 Dillan has been tasked with implementing the consensus reached in the developer meeting. To do so, he pulls the most recent version from the development of the ontology and creates a new branch named \textit{1314\_add\_microscope}.
 
-Then Dillan adds the necessary axioms to the ontology. He chooses to do so using {\protege}. He did already set up his working environment according Section~\ref{ssec:using-protege}. He opens the ontology in {\protege} and adds the missing class including its definition and the additional axiom.
+Then Dillan adds the necessary axioms to the ontology. He chooses to do so using {\protege}. He did already set up his working environment according to Section~\ref{ssec:using-protege}. He opens the ontology in {\protege} and adds the missing class including its definition and the additional axiom.
 
 Afterwards, he pushes his new branch to {\github} and opens a new Pull Request to merge his branch into the development branch.
 \end{example}

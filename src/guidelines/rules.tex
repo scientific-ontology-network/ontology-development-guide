@@ -1,35 +1,22 @@
 
-\section{Ontology development guidelines}
-
 \subsection{Development Rules}
 \label{ssec:development-rules}
+
+\todo{(MG) this should be integrated in the previous chapter.}
 For the consistent development of ontologies, a few basic rules and principles have to be followed.
 Therefore, a selected and adapted list of principles based on the development principles\footnote{\url{https://obofoundry.org/principles/fp-000-summary.html}} of OBO Foundry\cite{smith2007obo} is used:
 
 \begin{itemize}
-    \item \textbf{Open} - The ontology MUST be openly available to be used by all without any constraint.
-    \item \textbf{Common Format} - The ontology is made available in a common formal language in an accepted concrete syntax.
     \item \textbf{URI/Identifier Space} - Each ontology MUST have a unique IRI in the form of a permanent URL. \\ \textit{For the PMDco ontologies family, the namespace https://w3id.org/pmd/co is used}
-    \item \textbf{Versioning} - The ontology provider has documented procedures for versioning the ontology, and different versions of ontology are marked, stored, and officially released.
     \item \textbf{Scope} - The scope of the ontology and content that adheres to that scope is clearly specified. \\ \textit{For the PMDco ontologies family, the scopes are defined HERE [INSERT URL?]}
     \item \textbf{Textual Definitions} - The ontology has textual definitions for its classes.
     \item \textbf{Documentation} - The owners of the ontology should strive to provide as much documentation as possible. \\ \textit{For the PMDco ontologies family, comprehensive documentation can be found in the corresponding {\github}  repository: \url{https://github.com/materialdigital/core-ontology}}
     \item \textbf{Collaboration} - Ontology development should be carried out in a collaborative fashion.
-    \item \textbf{Authority} - There should be an authority responsible for communications between the community and the ontology developers, for mediating discussions involving maintenance in the light of scientific advance, and for ensuring that all user feedback is addressed.
     \item \textbf{Naming Conventions} - The names (primary labels) for elements (classes, properties, etc.) in an ontology must be intelligible to scientists and amenable to natural language processing.
     \item \textbf{Responsiveness} - Ontology developers shall offer channels for community participation and be responsive to requests.
 \end{itemize}
 
-\section{Tools for ontology development}
 
-\begin{description}
-    \item[Robot] Robot is a useful tool to process, translate ontologies, extract modules and information from and reason with ontologies. \url{http://robot.obolibrary.org/}
-    \item[(py-)horned-owl] The rust library horned-owl and its python interface py-horned-owl are more modern interfaces to a general interface for ontology processing \url{https://github.com/phillord/horned-owl} and \url{https://github.com/jannahastings/py-horned-owl}
-    \item[{\protege}] \url{https://protege.stanford.edu/}
-\end{description}
-
-
-%\input{src/handling-protege}
 
 
 

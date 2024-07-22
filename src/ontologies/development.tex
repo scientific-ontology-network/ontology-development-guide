@@ -1,0 +1,44 @@
+
+
+
+\subsection{Ontology development}
+
+In the previous sections, we introduced the main ingredients that need to be present in order to. The main focus of this document is, however, the process with which a useful ontology can be developed. Most ontologies are build for the purpose of represent of knowledge from different domains of interest or to integrate data from different sources. An ontology, therefore, serves as a shared conceptualisation between different actors or stakeholders. It is often wrongly assumed that this conceptualisation is something that already exists and can be extracted from analysing literature and domain descriptions. In practice, however, it quickly becomes apparent that these descriptions are imprecise at best and inconsistent at worst. Both cases are problematic if an ontology is to be used in practice to annotate new information. An imprecise ontology will be interpreted differently by different annotators, which in turn leads to inconsistent annotations. Instead, consensus finding is an essential step of good ontology development.
+
+In this section, we will lay out the ingedients that we deem necessary for developing a good and usable ontology.
+
+\subsubsection{Use a Top-Level Ontology}
+
+Ontology as a philosophical discipline is concerned with the question what things are. However, projects that are concerned with the description of a particular domain do not really need to develop a general conceptualisation of reality. Yet , developing such a framework is very usefull to prevent early mistakes that will only show their severe effects late in development. Top-level ontologies model fundamental distinctions of reality. \todo{FN: Please elaborate}
+
+One of the most widely used top-level ontologies is the Basic Formal Ontology (BFO, \cite{bfo-book}). It stands at the core of numerous ontologies and projects from the domain of bio-chemistry, energy and material science. BFO is well-documented and there are 
+
+\subsubsection{Identify Important Concepts and Relations Within Scope}
+
+\subsubsection{Reuse Where Possible}
+
+\subsubsection{Aim For Good Definitions}
+
+\subsubsection{Reach out to other experts}
+
+The more general the ontology is, the more important it is to maintain an open view of the things to be modeled. An application ontology that is only focussed on a single task and will never be used beyond that scope, does not require much consensus with other experts. But as soon as the ontology is supposed to be used beyond its circle of developerts, e.g. by external data annotaters, it is crucial to develop an ontology that those external stakeholders would agree to.
+
+* Engaging other experts helps with adoption
+
+%It is crucial to ensuring that the ontology accurately reflects the knowledge and semantics of the domain. A consensus on aspects relevant to the domain leads to a shared understanding among stakeholders. This is essential for creating an ontology that is widely accepted and used within the community. Furthermore, achieving consensus helps in standardizing the representation of concepts and relationships within the ontology. This, in turn, promotes interoperability by ensuring that different systems and applications can understand and exchange information using a common semantic framework. Therefore, a consensus on ontological terms just ensures its usability. Ontologies aim to reduce ambiguity by providing a formal and explicit representation of knowledge. Consensus building helps clarify ambiguous terms and concepts, making the ontology more precise and reliable. Moreover, ontologies are often used to facilitate communication between humans and machines. A consensus-driven ontology ensures that the terminology and semantics used in the ontology align with the mental models of the domain experts, making it easier for humans to understand and contribute to the knowledge representation.
+
+\subsubsection{Aim for Reuseability}
+
+The design of an ontology encourages the development of other reusable and modular ontologies. A widely accepted ontology in a domain, such as mid-level or higher-level domain ontologies, can serve as a foundation for other related ontologies, fostering a more efficient and scalable knowledge representation ecosystem. By involving domain experts and stakeholders in the development process, potential errors, inaccuracies, or oversights can be identified and corrected early on, for which a consensus finding procedure may be necessary.
+
+In general, building consensus involves engaging the community and incorporating diverse perspectives. This not only enhances the richness of the ontology but also promotes community involvement and ownership, leading to increased adoption and sustainability.
+Ontologies need to be adaptable to changes in the domain over time. Hence, a flexible foundation that can evolve with the changing needs and understanding of the domain, ensuring the ontology remains relevant, has to be implemented, which can be found in consensus finding processes.
+
+\subsubsection{Seperate Terminological and Factual Knowledge}
+
+Ontologies are useful to capture general knowledge of a domain. As mentioned earlier, "Every dog is a mammal" may be a useful axiom for some domains, while the fact that "Bob is a dog" is probably not useful for a larger domain. In knowledge representation, these two statements fall into seperate categories:
+The first statement belongs to the group of general statement about general concepts and their relations, also called the terminological box (TBox). The TBox encapsulates a collection of terminological axioms that delineate hierarchical relationships, classes, and overarching concepts pertinent to the domain. These axioms articulate subsumption relationships between classes, utilizing object properties to denote connections between them. Thus, they are representing a taxonomy or partial order among the classes. The TBox encompasses various types of axioms, including subsumption, equivalence, disjointness, and role hierarchy axioms which provides the structural underpinning for knowledge organization and facilitates automated reasoning to deduce new facts predicatable on the relationships.
+
+Conversely, statement that "Bob is a dog" is a statement about a particular and as such is usually considered part of the assertional box (ABox). The ABox embodies the assertional knowledge regarding individual entities within the domain. It records assertions pertaining to the membership of instances in specific classes and the relationships existing between these instances. Typically, ABox statements comprise concept assertions, denoting an individual's membership in a particular class, and role assertions, elucidating relationships between individuals. By accommodating the representation of concrete facts and instances, the ABox enables the knowledge base to delineate specific scenarios or manifestations of concepts outlined in the TBox. For instance, a tangible object like a machine present in a laboratory can be digitally depicted as an instance within the ABox and linked to other instances making use of object properties defined in the TBox.
+
+The synergy between the TBox and ABox provides a robust and formal framework for knowledge representation and inference. This coalescence empowers systems to execute logical inferences, conduct consistency evaluations, and address intricate queries within a specified domain. Thereby, comprehensive knowledge management and reasoning capabilities are facilitated. An ontology is usually part of the TBox. The terms of the ontology is then liked to individuals or data items in the ABox, which can be represented in various ways such as knowledge graphs or relational databases.
