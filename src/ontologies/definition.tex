@@ -29,33 +29,35 @@ Ontologies are normally used for the abstract description of a domain. Concrete 
 
 \paragraph{Annotations}
 
-A collection of relevant terms is a good starting point for an ontology. However, this does not yet provide any information about the intended meaning of these terms. Therefore, all parts of the ontology are provided with annotations that document them. For example, each class should be annotated with a natural language definition.\todo{FN: In my opinion this is too strong. Some classes are not possible to define. } But annotations can also fulfil other purposes. For example, they can be used to give classes different readable names. It is therefore possible to use several names for the same concept, for example to reflect the names of a concept in different communities.\todo{FN: Also different languages (e.g/, English, German)} It is also often helpful to record certain meta-information with the help of annotations, such as the authors of a certain concept in the ontology.
+A collection of relevant terms is a good starting point for an ontology. However, this does not yet provide any information about the intended meaning of these terms. Therefore, all parts of the ontology are provided with annotations that document them. For example, each class should be annotated with a natural language definition. A full-fletched definition may not be possible 
+ for all classes in an ontology. In those special cases, proper elucidation and examples should make the intended use of a class clear. \todo{FN: In my opinion this is too strong. Some classes are not possible to define. MG: Added some hedging} But annotations can also fulfil other purposes. For example, they can be used to give classes different readable names. It is therefore possible to use several names for the same concept, for example to reflect the names of a concept in different communities or labels in different languages. %\todo{FN: Also different languages (e.g/, English, German)}
+ It is also often helpful to record certain meta-information with the help of annotations, such as the authors of a certain concept in the ontology.
 
 \paragraph{Logical Theory} 
 
 An annotated vocabulary is already a good source of information for understanding a domain - it is basically a domain-specific lexicon. However, it does not record the concrete relationships between different concepts. Although it is possible to describe these in textual annotations, there is a risk that these annotations will contradict each other. It is therefore important to record the connections between the concepts and relations in the ontology in a way that can be automatically checked for consistency. For example, it is helpful to express general axioms such as "Every dog is a mammal", "Every car has wheels" or "Renewable energy only comes from renewable sources". In order to formalize these axioms properly, a logical language is required. Although there are many possible languages that can be used for this purpose, the \textit{Web Ontology Language} (OWL) has established itself as the standard, which we will discuss in more detail in Section~\ref{ssec:ontology-languages}.
 
 Figure~\ref{fig:vehicle-ontology} depicts a small example ontology with five classes and a single relationship (\textit{has part}). The class "Boat" is annotated with a definition. There are five \textit{is-a} relations depicted by white arrow heads and one axiom that defines that every car has some wheels.
-\todo{FN: The definition of "boat" is wrong, since it includes ships, submarines, amphibious cars, all of which are disjoint with boat}
+\todo{FN: The definition of "boat" is wrong, since it includes ships, submarines, amphibious cars, all of which are disjoint with boat. MG: Hope that fixed that.}
 \begin{figure}
     \centering
     \begin{tikzpicture}
-        \begin{pgfonlayer}{nodelayer}
+        %\begin{pgfonlayer}{nodelayer}
             \node [style=class] (0) at (-7.25, 8.5) {Material Entity};
             \node [style=class] (1) at (-3.75, 5.75) {Wheel};
             \node [style=class] (2) at (-7.75, 5.75) {Car};
             \node [style=class] (7) at (-8.75, 7.25) {Vehicle};
             \node [style=class] (8) at (-10, 5.75) {Boat};
-            \node [style=annotation, align=left] (13) at (-13, 7.25) {\small \textit{Definition:} A vehicle \\ \small that can travel in \\ \small water.};
-        \end{pgfonlayer}
-        \begin{pgfonlayer}{edgelayer}
+            \node [style=annotation, align=left] (13) at (-13, 7.25) {\small \textit{Definition:} A small vehicle \\ \small that can be used for \\ \small over-water travel but \\ \small  neither under-water \\ \small or land travel.};
+        %\end{pgfonlayer}
+        %\begin{pgfonlayer}{edgelayer}
             \draw [style=is-a] (1) to (0);
             \draw [style=rel] (2) -- (1) node[midway, above] {has part};
             \draw [style=is-a] (2) to (7);
             \draw [style=is-a] (7) to (0);
             \draw [style=is-a] (8) to (7);
             \draw [style=annot-edge] (13) to (8);
-        \end{pgfonlayer}
+        %\end{pgfonlayer}
     \end{tikzpicture}
     \caption{A simple ontology for the domain of vehicles.}
     \label{fig:vehicle-ontology}

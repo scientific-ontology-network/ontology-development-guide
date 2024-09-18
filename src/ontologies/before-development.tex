@@ -14,7 +14,7 @@ In this guide, we will mainly focus on domain ontologies. Top-level ontologies r
 
 
 \begin{example}
-Alice is an expert in the field of aerospace engineering and wants to develop a new ontology for her domain. In particular, she aims to integrate data sources from different airplane manufacturers. This task is limited to a particular domain and therefore the ontology should not be a top-level ontology. At the same time, she does not want to represent a particular application. Her task requires her to integrate dittetent views that experts haveonthe same particular domain.
+Alice is an expert in the field of automobile engineering and wants to develop a new ontology for her domain. In particular, she aims to integrate data sources from different car manufacturers. This task is limited to a particular domain and therefore the ontology should not be a top-level ontology. At the same time, she does not want to represent a particular application. Her task requires her to integrate dittetent views that experts haveonthe same particular domain.
 
 \todo{example for application ontology}
 
@@ -29,13 +29,22 @@ This approach has several decisive advantages. Firstly, it allows users to quick
 
 \begin{example}
 
-Alice collects the requirements for her domain. In doing so,she realises that her main focus lies on the description of the manufacturing process for airplanes. She then formulates the scope of her ontology as follows: "This ontology defines relevant terms for the domain of aircraft production. This includes parts of aircrafts, processes that are used to assemble these parts. It does not include terms related to the aerodynamic properties of parts or planes, flight behaviours, description of chemical processes etc."
+Alice collects the requirements for her domain. In doing so,she realises that her main focus lies on the description of the manufacturing process for cars. She then formulates the scope of her ontology as follows: "This ontology defines relevant terms for the domain of car production. This includes parts of cars, processes that are used to assemble these parts. It does not include terms related to the aerodynamic properties of parts, driving behaviours, description of chemical reactions that occur during the prodiction etc." Terms outside this scope will be, if needed, defined in separate ontologies.
 
 \end{example}
 
 \subsubsection{Define Competency Questions}
+\label{Define_Competency_Questions}
 
-One of the difficult tasks in ontology development is not the structuring of the ontology, but the choice of topics to focus on during development. A helpful tool for this is the definition of so-called \textit{competency questions}. These questions are a collection of questions that should be answerable using the ontology.
+One of the difficult tasks in ontology development is not the structuring of the ontology, but the choice of topics to focus on during development. A helpful tool for this is the definition of so-called \textit{competency questions}, a collection of questions that should be answerable using the ontology. 
+These questions can cover inferences that the ontologies enables (e.g. `The male sibling of a parent is an uncle') or queries that should be answerable given a presumptive ontology-aligned knowledge base. This enables developers to keep track of the progress of ontology development and help to direct the development process. 
+
 
 \begin{example}
+Alice defines a number of competency questions that are relevant for the defined scope:
+\begin{itemize}
+    \item `Which assembly lines were involved in the manufacturing of item \textit{120213}?'
+    \item `What kind of nut can be used to assemble the chasses of model E2931?'
+\end{itemize}
+
 \end{example}

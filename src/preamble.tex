@@ -1,26 +1,27 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{hyperref} % Required for inserting clickable URLs
 
-\usepackage{todonotes}
+\setlength{\marginparwidth }{2cm} 
+\setlength{\headheight}{14pt}
 
-\usepackage{fourier}        
-\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
-\usepackage{scalefnt}
-\usepackage[scaled=0.875]{helvet} % ss
-\renewcommand{\ttdefault}{lmtt} %tt
-\usepackage{microtype}						% better inline scaling
-\setlength{\emergencystretch}{1em}
-\DeclareFontFamily{U}{rcjhbltx}{}
-\DeclareFontShape{U}{rcjhbltx}{m}{n}{<->rcjhbltx}{}
-\DeclareSymbolFont{hebrewletters}{U}{rcjhbltx}{m}{n}
-\DeclareMathSymbol{\ayin}{\mathord}{hebrewletters}{96}
-\DeclareMathSymbol{\beth}{\mathord}{hebrewletters}{98}\let\bet\beth
+%\usepackage{fourier}        
+%\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+%\usepackage{scalefnt}
+%\usepackage[scaled=0.875]{helvet} % ss
+%\renewcommand{\ttdefault}{lmtt} %tt
+%\usepackage{microtype}						% better inline scaling
+%\setlength{\emergencystretch}{1em}
+%\DeclareFontFamily{U}{rcjhbltx}{}
+%\DeclareFontShape{U}{rcjhbltx}{m}{n}{<->rcjhbltx}{}
+%\DeclareSymbolFont{hebrewletters}{U}{rcjhbltx}{m}{n}
+%\DeclareMathSymbol{\ayin}{\mathord}{hebrewletters}{96}
+%\DeclareMathSymbol{\beth}{\mathord}{hebrewletters}{98}\let\bet\beth
 
 \pagenumbering{alph}
 
 \usepackage{amsmath,latexsym}
 \usepackage{amsmath,amsfonts,amssymb,bbm,latexsym}	
-\usepackage{fancyhdr}
+%\usepackage{fancyhdr}
 \usepackage{listings}
 
 \lstdefinelanguage{Manchester}{
@@ -52,9 +53,10 @@
 \tikzstyle{rel}=[arrows={->}]
 \tikzstyle{annot-edge}=[-, dashed]
 
-\pgfdeclarelayer{nodelayer}
-\pgfdeclarelayer{edgelayer}
-\pgfsetlayers{edgelayer,nodelayer}
+%\pgfdeclarelayer{nodelayer}
+%\pgfdeclarelayer{edgelayer}
+%\pgfdeclarelayer{todolayer}
+%\pgfsetlayers{edgelayer,nodelayer,todolayer}
 
 
 \newtheorem{definition}{Definition}
@@ -66,10 +68,13 @@
 \newcommand{\protege}{Protégé}
 
 
-\makeatletter
-\def\ifdraft{\ifdim\overfullrule>\z@
-  \expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi}
-\makeatother
+%\makeatletter
+%\def\ifdraft{\ifdim\overfullrule>\z@
+%  \expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi}
+%\makeatother
 
-\fancyhf{\ifdraft{DRAFT}{}}
-
+%\fancyhf{\ifdraft{DRAFT}{}}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[colorinlistoftodos,disable]{todonotes}
+\setuptodonotes{inline}
