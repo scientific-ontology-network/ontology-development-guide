@@ -37,7 +37,7 @@ The proposed ontology workflow uses alphanumeric identifiers due to them having 
     \item \texttt{Entity\ IRI:}
     \begin{itemize}
         \item \texttt{Start with:} Select the \texttt{Specified\ IRI} option and change it to the "Ontology IRI" of your ontology. 
-        \item \texttt{Followed by:} This setting depends on how the IRIs are resolved but \texttt{/} is a valid option.
+        \item \texttt{Followed by:} This setting depends on how the IRIs are resolved.
         \item \texttt{End with:} Select the \texttt{Auto-generated\ ID} option.
     \end{itemize}
 
@@ -84,7 +84,7 @@ Figure \ref{fig:protege-inferred-class-hierarchy} shows an example where the rea
     \begin{minipage}{.49\textwidth}
       \centering
       \includegraphics[width=0.9\linewidth]{fig/protege-asserted-class-hierarchy.png}
-      \caption{Class hierarchy as asserted by the user}
+      \caption{Class hierarchy as\\ asserted by the user}
       \label{fig:protege-asserted-class-hierarchy}
     \end{minipage}
     \begin{minipage}{.49\textwidth}
@@ -96,13 +96,11 @@ Figure \ref{fig:protege-inferred-class-hierarchy} shows an example where the rea
 \end{figure}
 
 \begin{example}
-    In order for Alice to model the manufacturing process of cars, she includes the class \texttt{Motor} in her ontology as well as the subclasses \texttt{Electric Motor} and \texttt{Combustion Engine}, so she can describe the various parts of cars. She also decides to declare \texttt{Electric Motor} and \texttt{Combustion Engine} to be disjoint classes, as a motor can only be either electric or combustion.
-
-    She also wants classes representing the final manufactured product. Therefore she decides to add the \texttt{Car} class to her ontology alongside the axiom \texttt{'Car' 'has part' exactly 1 'Motor'}.
+    In order for Alice to describe the various parts of cars, she includes the classes \texttt{Electric Motor} and \texttt{Combustion Engine} and decides to declare them to be disjoint classes, as a \texttt{Motor} can only be either electric or combustion. She also wants classes representing the final manufactured product and therefore decides to add the \texttt{Car} class alongside the axiom \texttt{'has part' exactly 1 'Motor'}.
     
-    Later, as Alice decides to also include the various types of cars that are manifactured, she adds the class \texttt{Hybrid Electric Vehicle} as subclass of \texttt{Car}. She also adds the axiom \texttt{'Hybrid Electric Vehicle' 'has part' some 'Electric Motor' and 'Hybrid Electric Vehicle' 'has part' some 'Combustion Engine'}.
+    Later, as Alice decides to also include the various types of cars that are manifactured. She adds the class \texttt{Hybrid Electric Vehicle} as subclass of \texttt{Car} along with the axioms \texttt{'has part' some 'Electric Motor'} and \texttt{'has part' some 'Combustion Engine'}. This results in the class hierarchy as shown in Figure \ref{fig:protege-asserted-class-hierarchy}.
 
-    After making her additions, Alice starts the reasoner in {\protege} and notices that it inferred \texttt{'Hybrid Electric Vehicle' EquivalentTo owl:Nothing} meaning that there can't be any hybrid electric vehicles. Due to the conflicting axioms of a \texttt{Car} having exactly 1 \texttt{Motor}, but the \texttt{Hybrid Electric Vehicle} being described as having two distinct types of motors, no individual can be an instance of \texttt{Hybrid Electric Vehicle}.
+    After making her additions, Alice starts the reasoner in {\protege} and notices that it inferred \texttt{'Hybrid Electric Vehicle' EquivalentTo owl:Nothing} (see Figure \ref{fig:protege-inferred-class-hierarchy}) meaning that there can't be any hybrid electric vehicles. Due to the conflicting axioms of a \texttt{Car} having exactly 1 \texttt{Motor}, but the \texttt{Hybrid Electric Vehicle} being described as having two distinct types of motors, no individual can be an instance of \texttt{Hybrid Electric Vehicle}.
 \end{example}
 
 To use the reasoner in {\protege}, navigate to \textit{$\text{Reasoner}$}, select one like \textit{$\text{HermiT}$} and click on \textit{$\text{Start reasoner}$}.
